@@ -6,6 +6,8 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
@@ -46,12 +48,9 @@ export const createUserDocumentFromAuth = async (
 
   // doc() retrieves documents inside the db; if the document doesn't exist, Google will still return a reference object, pointing to a place where data could be stored
   const userDocRef = doc(db, 'users', userAuth.uid);
-  console.log(userDocRef);
 
   // getDoc() is a function to get the document's data; if there is no document, the method will still return an object; to really check if the document exists, we need to run exists() on the snapshot
   const userSnapshot = await getDoc(userDocRef);
-  console.log(userSnapshot);
-  console.log(userSnapshot.exists());
 
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
@@ -74,7 +73,7 @@ export const createUserDocumentFromAuth = async (
   return userDocRef;
 };
 
-// Interface layers through helper functions
+// Interface functions
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
@@ -85,4 +84,12 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
   return await signInWithEmailAndPassword(auth, email, password);
+};
+
+export const signOutUser = async () => await signOut(auth);
+
+// Set a listener for whenever the auth state changes, call onAuthStateChanged and pass a callback function to it:
+export const onAuthStateChangedListener = callback => {
+  // Establish a listener under an observer pattern:
+  onAuthStateChanged(auth, callback);
 };
