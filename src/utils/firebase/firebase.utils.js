@@ -72,16 +72,12 @@ export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'categories');
   // Define the range of the query:
   const q = query(collectionRef);
+
   // Get query snapshot:
   const querySnapshot = await getDocs(q);
-  // Reduce the snapshot to an object that contains as keys the titles and as the values the items:
-  const categoryMap = querySnapshot.docs.reduce((acc, doc) => {
-    const { title, items } = doc.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
 
-  return categoryMap;
+  // Reduce the snapshot to an object that contains as keys the titles and as the values the items:
+  return querySnapshot.docs.map(doc => doc.data());
 };
 
 export const createUserDocumentFromAuth = async (
