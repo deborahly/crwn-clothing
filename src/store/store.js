@@ -6,9 +6,10 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 // Configurate enhancers; use them only in development environment
-const middleWares = [process.env.NODE_ENV !== 'production' && logger, thunk].filter(
-  Boolean
-);
+const middleWares = [
+  process.env.NODE_ENV !== 'production' && logger,
+  thunk,
+].filter(Boolean);
 
 const composeEnhancers =
   (process.env.NODE_ENV !== 'production' &&
@@ -22,7 +23,7 @@ const composedEnhancers = composeEnhancers(applyMiddleware(...middleWares));
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['user'],
+  whitelist: ['cart'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -5,22 +5,14 @@ import { useDispatch } from 'react-redux';
 import CategoriesPreview from '../../routes/categories-preview/categories-preview.component';
 import Category from '../../routes/category/category.component';
 
-import { setCategories } from '../../store/categories/category.actions';
-
-import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
+import { fetchCategoriesAsync } from '../../store/categories/category.actions';
 
 const Shop = () => {
   const dispatch = useDispatch();
 
-  // Fetch the categories-related data from Firebase and store in the reducer
+  // Call the thunk function so this component does not need to manage the async trait of fetching data
   useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments();
-
-      dispatch(setCategories(categoriesArray));
-    };
-
-    getCategoriesMap();
+    dispatch(fetchCategoriesAsync());
   }, [dispatch]);
 
   return (
