@@ -109,8 +109,7 @@ export const createUserDocumentFromAuth = async (
     }
   }
 
-  // Return the document with data:
-  return userDocRef;
+  return userSnapshot;
 };
 
 // Interface functions
@@ -132,4 +131,17 @@ export const signOutUser = async () => await signOut(auth);
 export const onAuthStateChangedListener = callback => {
   // Establish a listener under an observer pattern:
   onAuthStateChanged(auth, callback);
+};
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      userAuth => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
 };

@@ -2,12 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import { setCurrentUser } from './store/user/user.actions';
-
-import {
-  onAuthStateChangedListener,
-  createUserDocumentFromAuth,
-} from './utils/firebase/firebase.utils';
+import { checkUserSession } from './store/user/user.actions';
 
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
@@ -20,16 +15,8 @@ const App = () => {
 
   // Fetch the user-related code from Firebase
   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener(user => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      // Dispatch the action to the root-reducer
-      dispatch(setCurrentUser(user));
-    });
-
-    return unsubscribe;
-  }, [dispatch]);
+    dispatch(checkUserSession());
+  }, []);
 
   return (
     <Routes>
