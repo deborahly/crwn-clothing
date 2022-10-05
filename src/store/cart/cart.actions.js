@@ -2,7 +2,6 @@ import CART_ACTION_TYPES from './cart.types';
 import { createAction } from '../../utils/reducer/reducer.utils';
 
 export const setIsOpen = boolean => {
-  console.log('running setIsOpen');
   return createAction(CART_ACTION_TYPES.SET_IS_OPEN, boolean);
 };
 

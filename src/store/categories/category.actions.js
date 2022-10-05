@@ -1,6 +1,5 @@
 import CATEGORIES_ACTION_TYPES from './category.types';
 import { createAction } from '../../utils/reducer/reducer.utils';
-import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
 
 // Regular syncronous actions
 export const fetchCategoriesStart = () =>
