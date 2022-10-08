@@ -16,7 +16,7 @@ const App = () => {
   // Fetch the user-related code from Firebase
   useEffect(() => {
     dispatch(checkUserSession());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>
