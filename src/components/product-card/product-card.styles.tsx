@@ -21,6 +21,12 @@ export const ProductCardContainer = styled.div`
     position: absolute;
     top: 255px;
     display: none;
+    padding: 0;
+
+    @media screen and (max-width: 800px) {
+      display: block;
+      min-width: 130px;
+    }
   }
 
   &:hover {
@@ -31,6 +37,20 @@ export const ProductCardContainer = styled.div`
     button {
       opacity: 0.85;
       display: flex;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+ 
+    &:hover {
+      img {
+        opacity: unset;
+      }
+
+      button {
+        opacity: unset;
+      }
     }
   }
 `;
@@ -46,8 +66,16 @@ export const Footer = styled.div`
 export const Name = styled.span`
   width: 90%;
   margin-bottom: 15px;
+
+  @media screen and (max-width: 800px) {
+    width: 80%;
+  }
 `;
 
 export const Price = styled.span`
   width: 10%;
+
+  @media screen and (max-width: 800px) {
+    width: 20%;
+  }
 `;
