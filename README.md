@@ -3,7 +3,7 @@
 ### CONCEPT
 Crwn Clothing is a clothing shop website with five categories (hats, jackets, sneakers, womens, mens). Users can select one or many products to be added to their cart, and go to the checkout page when they are ready, and even after a page refresh (cart items are stored in the browser local storage). On the checkout page, users can manage their shopping items, by adding, subtracting or removing an item altogether, before proceeding to the payment, down on the same page.
 
-App deployed in: https://crwn-clothing-delight.netlify.app/
+App deployed in: [https://crwn-clothing-delight.netlify.app/](https://crwn-clothing-delight.netlify.app/)
 
 ### PROJET CHARACTERISTICS 
 The project is a SPA e-commerce built with React, using Redux for the state management. Redux-Thunk was originally implemented to deal with side effects, later replaced by Redux-Saga. 
