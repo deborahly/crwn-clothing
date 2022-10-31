@@ -8,7 +8,7 @@ App deployed in: https://crwn-clothing-delight.netlify.app/
 ### PROJET CHARACTERISTICS 
 The project is a SPA e-commerce built with React, using Redux for the state management. Redux-Thunk was originally implemented to deal with side effects, later replaced by Redux-Saga. 
 
-The project was written in JavaScript, converted to TypeScript in a given moment. For user authentication and products storage, the application uses Firebase, whereas for the payment, it uses Stripe. Styling was included using the styled-component library.  
+The project was written in JavaScript, converted to TypeScript at a certain point. For user authentication and products storage, the application uses Firebase, whereas for the payment, it uses Stripe. Styling was included using the styled-component library.  
 
 ### KEY FEATURES
 - Register
