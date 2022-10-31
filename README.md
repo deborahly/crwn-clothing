@@ -35,3 +35,6 @@ To run the application, execute:
 netlify dev
 ```
 The app is going to run on [127.0.0.1:8888](http://127.0.0.1:8888/).
+
+### DISCLAIMER
+This project was made during the course *Complete React Developer in 2022 (w/ Redux, Hooks, GraphQL)*. Although an assignment project, I coded it entirely by myself, not copying a single line from sources provided by the course.
