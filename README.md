@@ -32,7 +32,7 @@ yarn install
 To run the application, execute:
 
 ```bash
-netlify dev
+yarn start
 ```
 The app will attempt to run on port [127.0.0.1:8888](http://127.0.0.1:8888/).
 
