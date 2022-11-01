@@ -34,7 +34,7 @@ To run the application, execute:
 ```bash
 yarn start
 ```
-The app will attempt to run on port [127.0.0.1:8888](http://127.0.0.1:8888/).
+The app will attempt to run on port [127.0.0.1:3000](http://127.0.0.1:3000/).
 
 ### DISCLAIMER
 This project was made during the course *Complete React Developer in 2022 (w/ Redux, Hooks, GraphQL)*. Although an assignment project, I coded it entirely by myself, not copying a single line from sources provided by the course.
